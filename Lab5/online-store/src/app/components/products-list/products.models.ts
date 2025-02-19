@@ -8,5 +8,6 @@ export interface Product {
     description: string[],
     rating: number,
     link: string,
-    category: Category
+    category: Category,
+    likes: number
 }

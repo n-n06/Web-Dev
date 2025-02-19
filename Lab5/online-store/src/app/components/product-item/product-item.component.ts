@@ -3,11 +3,13 @@ import { Product } from '../products-list/products.models';
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { RatingPipe } from '../../pipes/rating.pipe';
 import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
+import { LikeButtonComponent } from "../like-button/like-button.component";
+import { ProductsService } from '../../services/products/products.service';
 
 @Component({
   selector: 'app-product-item',
   standalone: true,
-  imports: [CurrencyPipe, RatingPipe, PrimaryButtonComponent, NgOptimizedImage],
+  imports: [CurrencyPipe, RatingPipe, PrimaryButtonComponent, NgOptimizedImage, LikeButtonComponent],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css'
 })
@@ -16,6 +18,16 @@ export class ProductItemComponent {
     return encodeURIComponent(uri);
   }
 
+  constructor(private productService: ProductsService) {}
+
   @Input({required: true}) product! : Product;
+
+  updateLikes(newValue : number) {
+    this.product.likes = newValue;
+  }
+
+  deleteProduct() {
+    this.productService.deleteProduct(this.product.id);
+  }
 
 }

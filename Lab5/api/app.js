@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express();
+const cors = require('cors');
+
 let products  =  require('./products.json');
 let newProducts = products.map(p => ({ ...p, likes: 0 }));
 
 app.use(express.json());
+app.use(cors())
 
 app.get('/products', (req, res) => {
-    res.json({
-        'status' : 'OK',
-        'data' : newProducts
-    });
+    res.json(newProducts);
 })
 
 app.patch('/products/:id', (req, res) => {
