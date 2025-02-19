@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../products-list/products.models';
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
-import { RatingPipe } from './rating.pipe';
+import { RatingPipe } from '../../pipes/rating.pipe';
 import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
 
 @Component({

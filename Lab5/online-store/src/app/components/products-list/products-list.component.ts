@@ -1,8 +1,6 @@
 import { Component, signal } from '@angular/core';
-import productsList from '../../../../products.json';
-import { Product } from './products.models';
 import { ProductItemComponent } from '../product-item/product-item.component';
-import { Category } from '../category/category.enum';
+import { ProductsService } from '../../services/products/products.service';
 
 
 @Component({
@@ -13,9 +11,5 @@ import { Category } from '../category/category.enum';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
-  mappedProductsList = productsList.map(p => ({
-    ...p, category: p.category as Category
-  }));
-
-  products = signal<Product[]>(this.mappedProductsList);
+  products = ProductsService.instance.getProducts()
 }
