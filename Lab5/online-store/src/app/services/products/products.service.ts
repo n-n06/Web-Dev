@@ -1,8 +1,8 @@
-import { Injectable, Signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../../components/products-list/products.models';
 import { Category } from '../../components/category/category.enum';
-import { filter, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 
 @Injectable({

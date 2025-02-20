@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { debounceTime, Subject } from 'rxjs';
-import { ProductsService } from '../../services/products/products.service';
 
 
 @Component({

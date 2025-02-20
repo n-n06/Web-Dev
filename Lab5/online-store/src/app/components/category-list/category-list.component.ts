@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Category } from '../category/category.enum';
-import { PrimaryButtonComponent } from "../primary-button/primary-button.component";
 import { CategoryService } from '../../services/category/category.service';
 import { CategoryComponent } from '../category/category.component';
 

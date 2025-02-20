@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Category } from './category.enum';
 
 @Component({
   selector: 'app-category',

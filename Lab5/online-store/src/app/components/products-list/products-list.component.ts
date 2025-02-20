@@ -1,7 +1,6 @@
-import { Component, OnInit, Signal, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ProductsService } from '../../services/products/products.service';
-import { Product } from './products.models';
 import { Category } from '../category/category.enum';
 import { CategoryService } from '../../services/category/category.service';
 
