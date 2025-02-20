@@ -9,7 +9,4 @@ import { PrimaryButtonComponent } from "../primary-button/primary-button.compone
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  showButtonCliecked() {
-    console.log(true);
-  }
 }

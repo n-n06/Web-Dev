@@ -18,7 +18,6 @@ export class LikeButtonComponent {
   @Output() likesChanged = new EventEmitter<number>();
 
   updateLikes(event: any) {
-    // this.onLike();
     this.likesChanged.emit(++this.likes);
   }
 

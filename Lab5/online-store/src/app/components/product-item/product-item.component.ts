@@ -23,6 +23,7 @@ export class ProductItemComponent {
   constructor(private productService: ProductsService) {}
 
   @Input({required: true}) product! : Product;
+  @Output() delete = new EventEmitter<number>();
 
   updateLikes(newValue : number) {
     this.product.likes = newValue;
@@ -32,17 +33,9 @@ export class ProductItemComponent {
       });
   }
 
-  @Output() delete = new EventEmitter<number>();
-
   deleteProduct() {
     this.delete.emit(this.product.id); // Emit the product ID to the parent
   }
 
-  // deleteProduct() {
-  //   this.productService.deleteProduct(this.product.id)
-  //     .subscribe(res => {
-  //       console.log('DELETE Successful!');
-  //     });
-  // }
 
 }

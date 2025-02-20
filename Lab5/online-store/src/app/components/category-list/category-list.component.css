@@ -6,6 +6,7 @@
     padding: 16px;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6; /* Light Gray */
+    background: #f3f4f6;
+    border: 1px solid #878787;
 }
 
