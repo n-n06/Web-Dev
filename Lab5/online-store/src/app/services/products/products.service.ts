@@ -2,7 +2,7 @@ import { Injectable, Signal } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../../components/products-list/products.models';
 import { Category } from '../../components/category/category.enum';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -29,14 +29,25 @@ export class ProductsService {
   }
 
   public patchProductsLikes(id: number, likeAmount: number) {
-    return this.http.patch(this.apiUrl + `${id}`, {
+    const res = this.http.patch(this.apiUrl + `${id}`, {
       amount: likeAmount
+    }, {
+      headers: new HttpHeaders({'Content-Type' : 'application/json'})
     })
+    return res;
+  }
+
+  public filterProducts(category: Category) {
+    console.log('filtering2');
+    return this.getProducts().pipe(
+      map(products => products.filter(product => product.category === category))
+    );
   }
 
   public deleteProduct(id: number) {
-    const res = this.http.delete(this.apiUrl + `${id}`);
-    console.log(res);
+    const res = this.http.delete(this.apiUrl + `${id}`, {
+      headers: new HttpHeaders({'Content-Type' : 'application/json'})
+    });
     return res;
   }
 

@@ -1,6 +1,6 @@
 export enum Category {
     MusicRecords = 'Music Records',
+    MusicInstruments = 'Music Instruments',
     Manga = 'Manga',
-    MusicalInstruments = 'Musical Instruments',
-    PcKeyboard = 'PC Keyboards'
+    PcKeyboards = 'PC Keyboards'
 }

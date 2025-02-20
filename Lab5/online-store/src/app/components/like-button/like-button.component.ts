@@ -14,18 +14,15 @@ import { ProductsService } from '../../services/products/products.service';
 export class LikeButtonComponent {
   isHovered = false;
   @Input() likes: number = 0;
-  private likeUpdate = new Subject<number>();
   @Input() productId: number = 0;
   @Output() likesChanged = new EventEmitter<number>();
 
   updateLikes(event: any) {
     // this.onLike();
     this.likesChanged.emit(++this.likes);
-    this.likeUpdate.next(this.likes);
-    this.productsService.patchProductsLikes(this.productId, this.likes)
   }
 
-  constructor(private productsService: ProductsService) {
+  constructor() {
 
   }
 

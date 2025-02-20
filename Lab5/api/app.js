@@ -5,12 +5,23 @@ const cors = require('cors');
 let products  =  require('./products.json');
 let newProducts = products.map(p => ({ ...p, likes: 0 }));
 
+const apiLog = (req, res, next) => {
+  const date = new Date();
+  console.log(`[${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}] ` 
+    + req.method + " " + req.path + " ");
+  next();
+};
+
+
 app.use(express.json());
-app.use(cors())
+app.use(cors());
+app.use(apiLog);
+
 
 app.get('/products', (req, res) => {
     res.json(newProducts);
 })
+
 
 app.patch('/products/:id', (req, res) => {
     let productId = parseInt(req.params.id); 

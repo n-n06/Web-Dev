@@ -1,0 +1,13 @@
+button {
+    font-size: 20px;
+    background-color: #569a5b;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all ease-in-out 10ms;
+}
+
+button:hover {
+    opacity: 0.85;
+}

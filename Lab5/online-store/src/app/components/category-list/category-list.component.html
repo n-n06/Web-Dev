@@ -1,2 +1,5 @@
-<div id="category-list">
+<div class="category-list">
+    @for (category of categories; track $index) {
+        <app-category label="{{ category }}" (click)="selectCategory(category)"></app-category>
+    }
 </div>

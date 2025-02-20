@@ -1,6 +1,11 @@
-#category-list {
-    width: 100%;
+.category-list {
     height: 60px;
-    background-color: cyan;
     margin: 20px 0px;
+    display: flex;
+    gap: 80px;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6; /* Light Gray */
 }
+
