@@ -1,0 +1,9 @@
+.nav-container {
+    background-color: 	#373b3e;
+    display: flex;
+    padding: 0 60px;
+}
+
+.nav-button {
+    padding: 20px;
+}
