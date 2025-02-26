@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlbumCardComponent } from './album-card.component';
+import { SecondaryButtonComponent } from './secondary-button.component';
 
-describe('AlbumCardComponent', () => {
-  let component: AlbumCardComponent;
-  let fixture: ComponentFixture<AlbumCardComponent>;
+describe('SecondaryButtonComponent', () => {
+  let component: SecondaryButtonComponent;
+  let fixture: ComponentFixture<SecondaryButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlbumCardComponent]
+      imports: [SecondaryButtonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AlbumCardComponent);
+    fixture = TestBed.createComponent(SecondaryButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,1 +1,18 @@
-<p>album-detail works!</p>
+<section>
+    <div class="image-stack-container">
+        <img src="https://ik.imagekit.io/nspectree/miku/illust_121999945_20240908_102951.jpg?updatedAt=1740508652895">
+        <img src="https://ik.imagekit.io/nspectree/miku/116754237_p3_master1200.jpg?updatedAt=1740508651198">
+        <img src="https://ik.imagekit.io/nspectree/miku/119804911.png?updatedAt=1740508650128">
+    </div>
+
+    <div class="album-details-container">
+        <textarea [(ngModel)]="title"></textarea>
+        <p>Album id: {{ album.id }}</p>
+        <h3>User: {{ album.username }}</h3>
+        <p>User id: {{ album.userId }}</p>
+
+        <app-primary-button linkLabel="Save" (click)="updateTitle()"></app-primary-button>
+    </div>
+
+    
+</section>
