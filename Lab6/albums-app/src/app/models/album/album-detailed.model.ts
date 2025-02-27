@@ -1,8 +1,8 @@
 import { Photo } from "./photo.model";
 
 export interface AlbumDetailed {
-    id: number,
-    userId: number,
+    id: string,
+    userId: string,
     username: string,
     title: string,
     images: Photo[]

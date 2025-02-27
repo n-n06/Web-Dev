@@ -24,7 +24,7 @@ export class AlbumsComponent {
     })
   }
 
-  deleteAlbum(id: number) {
+  deleteAlbum(id: string) {
     this.albumsService.deleteAlbum(id).subscribe(
       res => {
         this.albums = this.albums.filter(album => album.id !== id);

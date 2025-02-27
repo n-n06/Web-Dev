@@ -14,10 +14,10 @@ export class AlbumPhotosComponent {
   albumService: AlbumsService = inject(AlbumsService);
   albumPhotos!: Photo[];
   route: ActivatedRoute = inject(ActivatedRoute);
-  id!: number;
+  id!: string | null;
 
   ngOnInit() {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.id = this.route.snapshot.paramMap.get('id');
     this.albumService.getPhotos(this.id).subscribe(res => {
       this.albumPhotos = res;
     });

@@ -1,10 +1,19 @@
 section {
-    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 100px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    padding: 20px;
 }
 
 img {

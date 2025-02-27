@@ -19,7 +19,7 @@ export class AlbumDetailComponent {
   title!: string;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.route.snapshot.paramMap.get('id');
     this.albumsService.getAlbumDetails(id).subscribe(
       res => {
         this.album = res;

@@ -22,28 +22,26 @@ export class AlbumsService {
     return this.http.get<Album[]>(this.baseUrl + 'albums');
   }
 
-  public getAlbumById(id: number): Observable<Album> {
+  public getAlbumById(id: string): Observable<Album> {
     return this.http.get<Album>(this.baseUrl + 'albums/' + `${id}`);
   }
 
-  public deleteAlbum(id: number) {
+  public deleteAlbum(id: string) {
     return this.http.delete(`${this.baseUrl}albums/${id}`);
   }
 
-  public updateAlbum(id: number, newTitle: string) {
+  public updateAlbum(id: string, newTitle: string) {
     return this.http.patch(`${this.baseUrl}albums/${id}`, {title: newTitle});
   }
 
-  public getAlbumDetails(id: number): Observable<AlbumDetailed> {
-    return this.http.get<Album>(this.baseUrl + 'albums/' + `${id}`).pipe(
+  public getAlbumDetails(id: string | null): Observable<AlbumDetailed> {
+    return this.http.get<AlbumDetailed>(this.baseUrl + 'albums/' + `${id}`).pipe(
       switchMap((album) => 
         forkJoin({
-          user: this.http.get<User>(`${this.baseUrl}users/${album.userId}`),
           images: this.http.get<Photo[]>(`${this.baseUrl}albums/${id}/photos`)
         }).pipe(
-          map(({ user, images }) => ({
+          map(({ images }) => ({
             ...album,
-            username: user.username,
             images
           }))
         )
@@ -51,11 +49,11 @@ export class AlbumsService {
     );
   }
 
-  public getPhotos(id: number): Observable<Photo[]> {
+  public getPhotos(id: string | null): Observable<Photo[]> {
     return this.http.get<Photo[]>(this.baseUrl + 'albums/' + `${id}/` + 'photos');
   }
 
-  public getUser(id: number): Observable<User> {
+  public getUser(id: string): Observable<User> {
     return this.http.get<User>(this.baseUrl + `users/${id}`);
   }
 
