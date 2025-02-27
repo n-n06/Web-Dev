@@ -25,17 +25,17 @@ section {
 }
 .image-stack-container img:nth-child(1) {
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.6;
     transform: translate(-20px, -20px);
 }
 .image-stack-container img:nth-child(2) {
     z-index: 2;
-    opacity: 0.5;
+    opacity: 0.8;
     transform: translate(-10px, -10px);
 }
 .image-stack-container img:nth-child(3) {
     z-index: 3;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .image-not-found {

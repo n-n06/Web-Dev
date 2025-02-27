@@ -38,13 +38,21 @@ const getAlbumById = async (req, res) => {
 
 const getPhotos = async (req, res) => {
   const id = req.params.id;
-  const response = await fetch(`${baseUrl}collections/${id}/photos`, {
+  let response = await fetch(`${baseUrl}collections/${id}/photos`, {
       headers: {
         'Authorization': `Client-ID ${apiKey}`
       }
     });
-  const responseJson = await response.json();
-  console.log(responseJson);
+  let responseJson = await response.json();
+
+  if (responseJson.length < 1) {
+    response = await fetch(`${baseUrl}collections/${id}`, {
+        headers: {
+          'Authorization': `Client-ID ${apiKey}`
+        }
+      }).then(data => data.json());
+    responseJson = response.preview_photos;
+  }
 
   res.json(responseJson.map(({id, alt_description, urls}) => (
     {id, title: alt_description, url: urls.regular, thumbnailUrl: urls.thumb}
@@ -53,7 +61,7 @@ const getPhotos = async (req, res) => {
 
 const deleteAlbum = async (req, res) => {
   const id = req.params.id;
-  albumData.filter(album => album.id !== id);
+  albumData = albumData.filter(album => album.id !== id);
   res.status(200).json({message:'Removed succeffully'});
 }
 
