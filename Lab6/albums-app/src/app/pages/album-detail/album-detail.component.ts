@@ -1,14 +1,14 @@
 import { Component, inject, Input } from '@angular/core';
 import { AlbumDetailed } from '../../models/album/album-detailed.model';
 import { AlbumsService } from '../../services/albums.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PrimaryButtonComponent } from "../../components/primary-button/primary-button.component";
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-album-detail',
   standalone: true,
-  imports: [PrimaryButtonComponent, FormsModule],
+  imports: [PrimaryButtonComponent, FormsModule, RouterModule],
   templateUrl: './album-detail.component.html',
   styleUrl: './album-detail.component.css'
 })

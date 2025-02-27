@@ -1,6 +1,8 @@
+
+
+
 <div class="album-list-container">
     @for (album of albums; track $index) {
-        <a routerLink="/albums/{{ album.id }}">
             <div class="album-container">
                 <div class="album-remove-button-container">
                     <div class="album-remove-button" (click)="deleteAlbum(album.id)">
@@ -21,7 +23,6 @@
     
                 
             </div>
-        </a>
 
     }
 </div>

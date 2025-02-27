@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class PrimaryButtonComponent {
   @Input() link!: string;
   @Input() linkLabel!: string;
+  @Input() buttonClass = 'primary-button primary-color';
 }

@@ -1,0 +1,12 @@
+section {
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+img {
+    width: 300px;
+}

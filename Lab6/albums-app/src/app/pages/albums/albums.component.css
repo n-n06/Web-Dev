@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     gap: 40px;
     padding: 40px 100px;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .album-container {
@@ -41,6 +41,7 @@
     justify-content: center;
     align-items: center;
     padding: 12px;
+    transition: ease-in 0.1s;
 }
 
 .album-remove-button:hover {
@@ -48,3 +49,4 @@
     cursor: pointer;
     background-color: rgba(255, 0, 0, 0.5);
 }
+

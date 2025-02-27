@@ -1,6 +1,5 @@
 .primary-button {
     font-size: 20px;
-    background-color: var(--primary);
     padding: 10px 20px;
     border: 1px solid white;
     border-radius: 8px;
@@ -8,6 +7,18 @@
     transition: ease-in 0.1s;
 }
 
-.primary-button:hover {
+.primary-color:hover {
     background-color: var(--primary-light);
+}
+
+.primary-color {
+    background-color: var(--primary);
+}
+
+.secondary-color {
+    background-color: var(--secondary);
+}
+
+.secondary-color:hover {
+    background-color: var(--secondary-light);
 }

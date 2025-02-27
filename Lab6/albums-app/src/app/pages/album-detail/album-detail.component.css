@@ -19,6 +19,9 @@ section {
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .image-stack-container img:nth-child(1) {
     z-index: 1;
@@ -35,6 +38,10 @@ section {
     opacity: 0.7;
 }
 
+.image-not-found {
+    color: var(--grey);
+}
+
 textarea {
     font-family: inherit;
     color: var(--primary-light);
@@ -44,6 +51,7 @@ textarea {
     background: none;
     border: none;
     resize: none;
+    height: min-content;
 }
 
 h3 {
@@ -52,4 +60,19 @@ h3 {
 
 p {
     margin: 0 0 20px;
+}
+
+.albums-return {
+    transition: ease-in 0.1s;
+}
+
+.albums-return:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.album-detail-button-container {
+    display: flex;
+    gap: 40px;
 }
