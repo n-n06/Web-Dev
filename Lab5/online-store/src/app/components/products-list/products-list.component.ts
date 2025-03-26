@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ProductsService } from '../../services/products/products.service';
 import { Category } from '../category/category.enum';
 import { CategoryService } from '../../services/category/category.service';
+import { ProductFront } from './products.models';
 
 
 @Component({
@@ -13,10 +14,12 @@ import { CategoryService } from '../../services/category/category.service';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit {
-  products! : any[];
+  products! : ProductFront[];
 
-  constructor(private productsService: ProductsService, private categoryService: CategoryService) {
-  }
+  productsService = inject(ProductsService);
+  categoryService = inject(CategoryService);
+
+
 
   ngOnInit(): void {
     this.loadProducts();

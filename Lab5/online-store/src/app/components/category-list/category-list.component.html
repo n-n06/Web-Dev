@@ -1,5 +1,5 @@
 <div class="category-list">
     @for (category of categories; track $index) {
-        <app-category label="{{ category }}" (click)="selectCategory(category)"></app-category>
+        <app-category label="{{ category.name }}" (click)="selectCategory(category.name)"></app-category>
     }
 </div>

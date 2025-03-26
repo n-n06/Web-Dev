@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Category } from '../category/category.enum';
 import { CategoryService } from '../../services/category/category.service';
 import { CategoryComponent } from '../category/category.component';
+import { CategoryInterface } from '../category/category.model';
 
 @Component({
   selector: 'app-category-list',
@@ -12,7 +13,17 @@ import { CategoryComponent } from '../category/category.component';
 })
 export class CategoryListComponent {
   categoryService = inject(CategoryService);
-  categories = Object.values(Category).slice(0, 4) as Category[];
+  categories !: CategoryInterface[];
+
+  ngOnInit() {
+    this.categoryService.getCategories().subscribe(
+      result => {
+        this.categories = result
+      }
+    );
+  }
+
+  
 
   selectCategory(category: Category) {
     this.categoryService.selectCategory(category);

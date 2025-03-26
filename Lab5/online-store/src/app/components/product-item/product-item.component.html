@@ -6,7 +6,7 @@
     </div>
 
     <div class="image-container">
-        <img [ngSrc]="product.imageUrl" height="150" width="150">
+        <img [ngSrc]="product.image_url" height="150" width="150">
     </div>
     
     <div class="product-card-info">
@@ -25,10 +25,14 @@
         @for (item of product.description.split('. '); track $index) {
             <p> {{item}} </p>
         }
+        <p><strong>Count: {{product.count}}</strong></p>
         <p><strong>Rating: </strong>{{ product.rating | rating }} ({{product.rating}})</p>
         <p><strong>Likes: </strong>{{ product.number_of_likes }}</p>
 
+
+
         <div class="price-containter">
+            <h5></h5>
             <hr>
             <h4>Price</h4>
             <h5>{{ product.price | currency: '₸' : 'symbol':'1.2-2' }}</h5>

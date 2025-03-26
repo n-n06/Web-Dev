@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Product } from '../products-list/products.models';
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { RatingPipe } from '../../pipes/rating.pipe';
@@ -20,14 +20,14 @@ export class ProductItemComponent {
     return encodeURIComponent(uri);
   }
 
-  constructor(private productService: ProductsService) {}
+  private productService = inject(ProductsService);
 
   @Input({required: true}) product! : Product;
   @Output() delete = new EventEmitter<number>();
 
   updateLikes(newValue : number) {
     this.product.number_of_likes = newValue;
-    this.productService.patchProductsLikes(this.product.id, 1)
+    this.productService.patchProductsLikes(this.product.id, this.product.number_of_likes)
       .subscribe(res => {
         console.log('PATCH Successful!');
       });

@@ -3,8 +3,10 @@ import { Category } from "../../components/category/category.enum";
 export interface Product {
     id: number,
     name: string,
-    imageUrl: string,
+    image_url: string,
     price: number,
+    is_active : boolean,
+    count : number,
     description: string,
     rating: number,
     link: string,
