@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Category } from '../category/category.enum';
 import { CategoryService } from '../../services/category/category.service';
 import { CategoryComponent } from '../category/category.component';
@@ -11,11 +11,8 @@ import { CategoryComponent } from '../category/category.component';
   styleUrl: './category-list.component.css'
 })
 export class CategoryListComponent {
-  categories = Object.values(Category) as Category[];
-
-  constructor(private categoryService: CategoryService) {
-
-  }
+  categoryService = inject(CategoryService);
+  categories = Object.values(Category).slice(0, 4) as Category[];
 
   selectCategory(category: Category) {
     this.categoryService.selectCategory(category);

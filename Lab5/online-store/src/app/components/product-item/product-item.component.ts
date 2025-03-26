@@ -26,7 +26,7 @@ export class ProductItemComponent {
   @Output() delete = new EventEmitter<number>();
 
   updateLikes(newValue : number) {
-    this.product.likes = newValue;
+    this.product.number_of_likes = newValue;
     this.productService.patchProductsLikes(this.product.id, 1)
       .subscribe(res => {
         console.log('PATCH Successful!');

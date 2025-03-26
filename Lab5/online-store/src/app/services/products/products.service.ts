@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Product } from '../../components/products-list/products.models';
+import { Product, ProductFront } from '../../components/products-list/products.models';
 import { Category } from '../../components/category/category.enum';
 import { map, Observable } from 'rxjs';
 
@@ -9,19 +9,19 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  apiUrl: string = 'http://localhost:5000/products/';
+  apiUrl: string = 'http://localhost:8000/api/products/';
 
   constructor(
     private http: HttpClient,
   ) { 
   }
 
-  public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl).pipe(
+  public getProducts(): Observable<ProductFront[]> {
+    return this.http.get<ProductFront[]>(this.apiUrl).pipe(
       map(products => {
         return products.map(product => ({
           ...product,
-          category: product.category as Category  
+          category: Object.values(Category)[product.category - 1] as Category
         }))
       }
       )

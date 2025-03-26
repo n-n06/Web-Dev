@@ -5,9 +5,13 @@ export interface Product {
     name: string,
     imageUrl: string,
     price: number,
-    description: string[],
+    description: string,
     rating: number,
     link: string,
-    category: Category,
-    likes: number
+    category: number,
+    number_of_likes: number
+}
+
+export interface ProductFront extends Product {
+    category: Category
 }

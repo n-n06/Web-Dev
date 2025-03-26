@@ -14,14 +14,19 @@
 
         <div class="product-name-like-container">
             <h3>{{ product.name }}</h3>
-            <app-like-button [productId]=product.id [likes]=product.likes (likesChanged)="updateLikes($event)"></app-like-button>
+            <app-like-button 
+                [productId]=product.id 
+                [likes]=product.number_of_likes
+                (likesChanged)="updateLikes($event)"
+            >
+            </app-like-button>
         </div>
         
-        @for (item of product.description; track $index) {
+        @for (item of product.description.split('. '); track $index) {
             <p> {{item}} </p>
         }
         <p><strong>Rating: </strong>{{ product.rating | rating }} ({{product.rating}})</p>
-        <p><strong>Likes: </strong>{{ product.likes }}</p>
+        <p><strong>Likes: </strong>{{ product.number_of_likes }}</p>
 
         <div class="price-containter">
             <hr>
@@ -34,7 +39,11 @@
                 <app-primary-button label="Link" class="kaspi-link"/>
             </a>
     
-            <a [href]="'https://t.me/share/url?url=' + encodeProductURI(product.link) + '&text=' + encodeProductURI('Check out this amazing product!')" target="_blank">
+            <a [href]="'https://t.me/share/url?url=' + 
+                encodeProductURI(product.link) + '&text=' + 
+                encodeProductURI('Check out this amazing product!')" 
+                target="_blank"
+            >
                 <app-primary-button label="Share"/>
             </a>
         </div>
