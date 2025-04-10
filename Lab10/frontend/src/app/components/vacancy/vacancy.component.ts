@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { VacancyService } from '../../services/vacancy.service';
 import { Vacancy } from '../../models/vacancy.model';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor } from '@angular/common';
 import { CompanyService } from '../../services/company.service';
 
 @Component({
@@ -17,11 +16,10 @@ export class VacancyComponent {
   companyId!: number;
   companyName!: string;
 
-  constructor(
-    private vacancyService: VacancyService,
-    private route: ActivatedRoute,
-    private companyService: CompanyService
-  ) {}
+  private vacancyService: VacancyService = inject(VacancyService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private companyService: CompanyService = inject(CompanyService);
+  
 
   ngOnInit() {
     this.companyId = Number(this.route.snapshot.paramMap.get('id'));
