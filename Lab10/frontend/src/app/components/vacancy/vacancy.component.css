@@ -1,3 +1,23 @@
 .vacancy-card {
+    width: 1000px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 20px;
+}
 
+.title {
+    padding: 10px 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+.vacancy-list {
+    gap: 20px;
+    margin: 12px 0px;
+    padding: 60px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

@@ -1,6 +1,15 @@
-<h1>Companies</h1>
-<ul>
+<div class="title">
+    <h1>Companies</h1>
+</div>
+
+<ul class="company-list">
   <li *ngFor="let company of companies" (click)="goToCompanyVacancies(company.id)" style="cursor: pointer;">
-    {{ company.name }}
+    <div class="company-card">
+        <h2> {{ company.name }}</h2>
+        <p>{{company.description}}</p>
+        <br>
+        <p>City: {{company.city || 'Not Specified'}}</p>
+        <p>Address: {{company.address || 'Not Speicified'}}</p>
+    </div>
   </li>
 </ul>

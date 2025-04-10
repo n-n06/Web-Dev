@@ -1,5 +1,5 @@
-<h2>Vacancies for Company ID: {{ companyId }}</h2>
-<div class="vacancies-container">
+<h2 class="title">Vacancies for {{ companyName }}</h2>
+<div class="vacancy-list">
   @for (v of vacancies; track $index) {
     <div class="vacancy-card">
       <h2>{{v.name}}</h2>
